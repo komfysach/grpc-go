@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package greet;
+option go_package = "/calculator/calculatorpb";
+
+message Calcu {
+    int32 firstNumber = 1;
+    int32 secondNumber = 2;
+}
+
+message CalcuRequest {
+    Calcu calculation = 1;
+}
+
+message CalcuResponse {
+    int32 result = 1;
+}
+
+service CalcuService{
+    // Unary
+    rpc Calcu(CalcuRequest) returns (CalcuResponse) {};
+}
